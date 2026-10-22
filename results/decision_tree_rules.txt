@@ -1,0 +1,130 @@
+|--- est_snr_db <= 17.00
+|   |--- chan_variation <= 0.13
+|   |   |--- chan_est_mean_mag <= 0.95
+|   |   |   |--- chan_power_spread <= 0.64
+|   |   |   |   |--- class: 1
+|   |   |   |--- chan_power_spread >  0.64
+|   |   |   |   |--- chan_est_mean_mag <= 0.93
+|   |   |   |   |   |--- deep_fade_ratio <= 0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- deep_fade_ratio >  0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chan_est_mean_mag >  0.93
+|   |   |   |   |   |--- class: 1
+|   |   |--- chan_est_mean_mag >  0.95
+|   |   |   |--- chan_power_spread <= 0.30
+|   |   |   |   |--- class: 1
+|   |   |   |--- chan_power_spread >  0.30
+|   |   |   |   |--- chan_power_spread <= 0.33
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chan_power_spread >  0.33
+|   |   |   |   |   |--- chan_variation <= 0.12
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- chan_variation >  0.12
+|   |   |   |   |   |   |--- class: 1
+|   |--- chan_variation >  0.13
+|   |   |--- zf_noise_enhance <= 6.93
+|   |   |   |--- chan_est_peak_to_avg <= 1.58
+|   |   |   |   |--- class: 1
+|   |   |   |--- chan_est_peak_to_avg >  1.58
+|   |   |   |   |--- chan_est_peak_to_avg <= 2.13
+|   |   |   |   |   |--- chan_est_peak_to_avg <= 2.08
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- chan_est_peak_to_avg >  2.08
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chan_est_peak_to_avg >  2.13
+|   |   |   |   |   |--- class: 1
+|   |   |--- zf_noise_enhance >  6.93
+|   |   |   |--- chan_variation <= 0.32
+|   |   |   |   |--- chan_variation <= 0.14
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chan_variation >  0.14
+|   |   |   |   |   |--- deep_fade_ratio <= 0.05
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- deep_fade_ratio >  0.05
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- chan_variation >  0.32
+|   |   |   |   |--- class: 1
+|--- est_snr_db >  17.00
+|   |--- zf_noise_enhance <= 2.43
+|   |   |--- chan_variation <= 0.14
+|   |   |   |--- chan_est_peak_to_avg <= 1.49
+|   |   |   |   |--- chan_variation <= 0.09
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- chan_variation >  0.09
+|   |   |   |   |   |--- est_snr_db <= 23.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- est_snr_db >  23.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- chan_est_peak_to_avg >  1.49
+|   |   |   |   |--- est_snr_db <= 21.00
+|   |   |   |   |   |--- chan_power_spread <= 0.64
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- chan_power_spread >  0.64
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- est_snr_db >  21.00
+|   |   |   |   |   |--- est_snr_db <= 25.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- est_snr_db >  25.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |--- chan_variation >  0.14
+|   |   |   |--- zf_noise_enhance <= 1.86
+|   |   |   |   |--- chan_power_spread <= 0.53
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- chan_power_spread >  0.53
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- zf_noise_enhance >  1.86
+|   |   |   |   |--- est_snr_db <= 27.00
+|   |   |   |   |   |--- zf_noise_enhance <= 2.10
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- zf_noise_enhance >  2.10
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- est_snr_db >  27.00
+|   |   |   |   |   |--- class: 0
+|   |--- zf_noise_enhance >  2.43
+|   |   |--- chan_variation <= 0.13
+|   |   |   |--- est_snr_db <= 25.00
+|   |   |   |   |--- zf_noise_enhance <= 9.16
+|   |   |   |   |   |--- chan_est_mean_mag <= 0.89
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- chan_est_mean_mag >  0.89
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- zf_noise_enhance >  9.16
+|   |   |   |   |   |--- chan_est_mean_mag <= 0.87
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- chan_est_mean_mag >  0.87
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- est_snr_db >  25.00
+|   |   |   |   |--- deep_fade_ratio <= 0.11
+|   |   |   |   |   |--- zf_noise_enhance <= 2.72
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- zf_noise_enhance >  2.72
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- deep_fade_ratio >  0.11
+|   |   |   |   |   |--- chan_est_peak_to_avg <= 1.59
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- chan_est_peak_to_avg >  1.59
+|   |   |   |   |   |   |--- class: 0
+|   |   |--- chan_variation >  0.13
+|   |   |   |--- zf_noise_enhance <= 5.19
+|   |   |   |   |--- est_snr_db <= 23.00
+|   |   |   |   |   |--- est_snr_db <= 19.00
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- est_snr_db >  19.00
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- est_snr_db >  23.00
+|   |   |   |   |   |--- chan_variation <= 0.18
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- chan_variation >  0.18
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- zf_noise_enhance >  5.19
+|   |   |   |   |--- chan_est_peak_to_avg <= 1.82
+|   |   |   |   |   |--- chan_est_mean_mag <= 0.89
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- chan_est_mean_mag >  0.89
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chan_est_peak_to_avg >  1.82
+|   |   |   |   |   |--- deep_fade_ratio <= 0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- deep_fade_ratio >  0.09
+|   |   |   |   |   |   |--- class: 1
