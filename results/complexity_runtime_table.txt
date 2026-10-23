@@ -1,15 +1,15 @@
 Runtime measured with time.perf_counter over 30 bursts x 10 frames (SNR 15 dB, 5 taps), median of 3 repeats;
-includes each strategy's own front-end work (pilot LS, noise estimate). Environment: Python 3.13.3, NumPy 2.5.4, Windows-11-10.0.26200-SP0, AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD.
+includes each strategy's own front-end work (pilot LS, noise estimate). Environment: Python 3.13.3, NumPy 2.2.6, Windows-11-10.0.26300-SP0, AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD.
 Runtimes are environment dependent (single-threaded NumPy; Python-loop overhead dominates the adaptive filters).
 
 Strategy             |   us / frame | CM / frame | SE b/s/Hz | Training 
 ------------------------------------------------------------------------
-A: LS + ZF           |         94.3 |        176 |     1.200 | none     
-B: DFT-LS + MMSE     |        140.5 |        608 |     1.200 | none     
-C: LMMSE + MMSE      |        109.8 |       2959 |     1.200 | none     
-D: LS-init + LMS     |        144.8 |        154 |     0.960 | 2 symbols
-E: LS-init + NLMS    |        169.8 |        202 |     0.960 | 2 symbols
-F: LS-init + RLS     |        153.9 |        250 |     0.960 | 2 symbols
+A: LS + ZF           |        108.6 |        176 |     1.200 | none     
+B: DFT-LS + MMSE     |        123.0 |        608 |     1.200 | none     
+C: LMMSE + MMSE      |         84.9 |       2959 |     1.200 | none     
+D: LS-init + LMS     |        117.2 |        154 |     0.960 | 2 symbols
+E: LS-init + NLMS    |        138.6 |        202 |     0.960 | 2 symbols
+F: LS-init + RLS     |        174.7 |        250 |     0.960 | 2 symbols
 
 CM = complex-multiplication-equivalent proxy per received OFDM symbol (receiver.complexity_cm_per_frame).
 SE = payload bits / transmitted time samples: pilots (16/64) and CP (16/64 samples) are already excluded from

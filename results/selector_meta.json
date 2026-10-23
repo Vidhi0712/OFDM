@@ -46,8 +46,8 @@
   },
   "versions": {
     "python": "3.13.3",
-    "numpy": "2.5.4",
-    "sklearn": "1.9.1",
-    "platform": "Windows-11-10.0.26200-SP0"
+    "numpy": "2.2.6",
+    "sklearn": "1.8.0",
+    "platform": "Windows-11-10.0.26300-SP0"
   }
 }

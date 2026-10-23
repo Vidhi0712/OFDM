@@ -1,6 +1,6 @@
 {
   "mode": "full",
-  "elapsed_seconds": 221.2,
+  "elapsed_seconds": 257.8,
   "n_bursts": {
     "train": 3840,
     "val": 1920,
