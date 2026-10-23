@@ -1,0 +1,26 @@
+Receiver-level summary on 11520 held-out test bursts (768 payload bits each, SNR 0-30 dB uniform,
+delay profiles [1, 2, 3, 5, 8, 12] taps, fd*Ts in [0.0, 0.02]). BER 95% CI = bootstrap over bursts.
+
+Method                                   |       BER | 95% CI              |       SER |   MSE(dB) | SE b/s/Hz | CM/frm
+-----------------------------------------------------------------------------------------------------------------------
+A: LS + ZF                               |   0.06202 | [ 0.06066, 0.06369] |   0.11021 |      4.03 |    1.200 |    176
+B: DFT-LS + MMSE                         |   0.05258 | [ 0.05131, 0.05403] |   0.09378 |     -6.89 |    1.200 |    608
+C: LMMSE + MMSE                          |   0.04985 | [ 0.04865, 0.05127] |   0.08906 |     -7.17 |    1.200 |   2959
+D: LS-init + LMS                         |   0.06591 | [ 0.06449, 0.06753] |   0.11681 |     -5.49 |    0.960 |    154
+E: LS-init + NLMS                        |   0.06387 | [ 0.06239, 0.06558] |   0.11234 |     -4.05 |    0.960 |    202
+F: LS-init + RLS                         |   0.06000 | [ 0.05867, 0.06156] |   0.10640 |     -5.99 |    0.960 |    250
+Rule-based selector                      |   0.05457 | [ 0.05330, 0.05599] |   0.09740 |     -4.17 |    1.200 |    497
+ML selector (Decision Tree)              |   0.04982 | [ 0.04862, 0.05123] |   0.08903 |     -7.05 |    1.200 |   2032
+Oracle (offline best, not realisable)    |   0.04691 | [ 0.04576, 0.04828] |   0.08409 |     -6.78 |    1.135 |   1002
+
+ML selector classification on the same TEST bursts (labels = offline-best strategy per burst):
+  accuracy = 0.465, macro-F1 = 0.263  (accuracy alone does NOT prove receiver improvement; see BER rows above)
+  ML strategy usage: A=19.3%, B=16.6%, C=64.1%, D=0.0%, E=0.0%, F=0.0%
+  Oracle label usage: A=28.9%, B=17.5%, C=26.7%, D=8.8%, E=6.9%, F=11.3%
+
+SE = net payload bits per time sample (pilot + CP overhead; D-F also pay 2 training symbols per 8-symbol payload burst).
+Selectors: SE/CM are usage-weighted averages. CM = complexity proxy (see receiver.complexity_cm_per_frame).
+
+Best fixed strategy: C: LMMSE + MMSE (BER 0.04985). ML selector BER 0.04982. Paired-bootstrap 95% CI of BER(ML)-BER(best fixed): [-0.00008, 0.00003] -> no statistically significant difference between ML and the best fixed strategy (inconclusive).
+ML vs rule-based selector: CI of BER(ML)-BER(rule) = [-0.00491, -0.00459].
+Headroom: best fixed minus oracle = 0.00294 BER (the oracle exploits per-burst noise luck, so it is not an attainable target).

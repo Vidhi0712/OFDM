@@ -1,0 +1,21 @@
+Adaptive-equalizer hyper-parameter sweep on tuning seed 999 (192 bursts, SNR {6,12,20,28}, fd {0,0.02}, taps {2,5,8}).
+Reference: A (LS+ZF) BER 0.0417, C (LMMSE+MMSE) BER 0.0320
+
+LMS  mu=0.05  BER 0.0479
+LMS  mu=0.15  BER 0.0453
+LMS  mu=0.3   BER 0.0472
+NLMS mu=0.1   BER 0.0445
+NLMS mu=0.25  BER 0.0445
+NLMS mu=0.5   BER 0.0499
+NLMS mu=0.9   BER 0.0685
+RLS  lambda=0.9   delta=0.1  BER 0.0402
+RLS  lambda=0.9   delta=0.5  BER 0.0407
+RLS  lambda=0.9   delta=2.0  BER 0.0419
+RLS  lambda=0.98  delta=0.1  BER 0.0402
+RLS  lambda=0.98  delta=0.5  BER 0.0406
+RLS  lambda=0.98  delta=2.0  BER 0.0423
+RLS  lambda=1.0   delta=0.1  BER 0.0402
+RLS  lambda=1.0   delta=0.5  BER 0.0407
+RLS  lambda=1.0   delta=2.0  BER 0.0424
+
+Defaults used: LMS mu=0.15, NLMS mu=0.25 (eps=0.001), RLS lambda=0.98 delta=0.5.

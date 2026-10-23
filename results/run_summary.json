@@ -1,0 +1,66 @@
+{
+  "mode": "full",
+  "elapsed_seconds": 221.2,
+  "n_bursts": {
+    "train": 3840,
+    "val": 1920,
+    "test": 11520
+  },
+  "bits_per_burst": 768,
+  "test_bits": 8847360,
+  "grid": {
+    "snr_range": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30
+    ],
+    "tap_configs": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      12
+    ],
+    "fd_configs": [
+      0.0,
+      0.02
+    ]
+  },
+  "hyperparameters": {
+    "weighting": "regret",
+    "max_depth": 4,
+    "min_samples_leaf": 20
+  },
+  "test_accuracy": 0.46493055555555557,
+  "test_macro_f1": 0.2629595105177511,
+  "test_ber": {
+    "A: LS + ZF": 0.062024830005787034,
+    "B: DFT-LS + MMSE": 0.05258054380063657,
+    "C: LMMSE + MMSE": 0.049849785698784725,
+    "D: LS-init + LMS": 0.06590508355034722,
+    "E: LS-init + NLMS": 0.06386696144386574,
+    "F: LS-init + RLS": 0.059999027958622685,
+    "Rule-based selector": 0.05457164623119213,
+    "ML selector (Decision Tree)": 0.04982288501880787,
+    "Oracle (offline best, not realisable)": 0.04691297743055556
+  },
+  "seeds": {
+    "train": 101,
+    "val": 202,
+    "test": 303
+  }
+}

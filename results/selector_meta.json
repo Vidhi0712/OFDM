@@ -1,0 +1,53 @@
+{
+  "feature_names": [
+    "est_snr_db",
+    "pilot_res_power",
+    "delay_spread_proxy",
+    "chan_variation",
+    "chan_power_spread",
+    "chan_est_peak_to_avg",
+    "deep_fade_ratio",
+    "zf_noise_enhance_log",
+    "doppler_proxy",
+    "chan_est_corr"
+  ],
+  "feature_docs": {
+    "est_snr_db": "dB, [-10,50]. 10log10((P_y - s2)/s2); s2 = 16*mean|h16[n>=12]|^2 (pilot-CIR tail noise estimate); P_y = mean received power.",
+    "pilot_res_power": "unitless, >=0. mean|H_p - LP(H_p)|^2 / mean|H_p|^2, LP = pilot-domain CIR truncated to CP_LEN/2 taps. Non-trivial residual (noise + long delay tail); averaged over frames.",
+    "delay_spread_proxy": "samples, [0,~5]. RMS delay spread of the noise-floor-corrected 16-tap pilot CIR power profile (taps<12), averaged over frames.",
+    "chan_variation": "unitless, >=0. mean|diff_k H_LS[k]| over subcarriers (frequency selectivity / noise roughness), averaged over frames.",
+    "chan_power_spread": "unitless, >=0. std(|H_LS|^2)/mean(|H_LS|^2) over subcarriers.",
+    "chan_est_peak_to_avg": "unitless, >=1. max|H_LS| / mean|H_LS|.",
+    "deep_fade_ratio": "fraction in [0,1]. share of subcarriers with |H_LS| < 0.3.",
+    "zf_noise_enhance_log": "log10 of mean(1/max(|H_LS|^2,1e-6)): proxy for ZF noise boost.",
+    "doppler_proxy": "unitless, >=0. max(0, mean|H_p[n]-H_p[n-1]|^2 - 2 s2) / mean|H_p|^2 : frame-to-frame channel change beyond noise (0 for single-frame bursts).",
+    "chan_est_corr": "[-1,1]. mean over consecutive frames of Re<H_p[n],H_p[n-1]>/(|H_p[n]||H_p[n-1]|) (1 for single-frame bursts)."
+  },
+  "strategy_names": {
+    "0": "A: LS + ZF",
+    "1": "B: DFT-LS + MMSE",
+    "2": "C: LMMSE + MMSE",
+    "3": "D: LS-init + LMS",
+    "4": "E: LS-init + NLMS",
+    "5": "F: LS-init + RLS"
+  },
+  "hyperparameters": {
+    "weighting": "regret",
+    "max_depth": 4,
+    "min_samples_leaf": 20
+  },
+  "label_objective": "argmin( BER + 0.0001*(C/Cmax + SE_loss) ); ties -> lowest id",
+  "n_pay": 8,
+  "n_train": 2,
+  "seeds": {
+    "train": 101,
+    "val": 202,
+    "test": 303
+  },
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.5.4",
+    "sklearn": "1.9.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

@@ -92,3 +92,13 @@ Split by scenario/seed/channel configuration to reduce leakage. Fit preprocessin
 
 ## 7. Reporting rules
 Always include simulation parameters, random seeds, number of frames/bits, train/validation/test split, algorithm settings, and software versions. Plot axes and units must be labelled. Report negative or inconclusive results honestly. Distinguish simulated evidence from theoretical expectations.
+
+## 8. Implementation notes (this repository)
+- Strategies A-F: LS+ZF, DFT-LS+MMSE, LMMSE+MMSE, LS-init LMS/NLMS/RLS (`receiver.run_strategy`). LMS/NLMS/RLS are one-tap-per-subcarrier
+  adaptive equalizers across OFDM symbols (training: 2 known symbols, then decision-directed); they are not channel estimators.
+- LMMSE uses a fixed prior PDP and a pilot-estimated noise variance (`ofdm.lmmse_weights`, `receiver.estimate_noise_var`); oracle-statistics LMMSE is offline analysis only.
+- Features: 10 receiver-observable features; documented in `receiver.FEATURE_DOCS`. Omitted from the specification's candidates:
+  `interference_power_proxy` (interference is not simulated). `delay_spread_proxy`, `doppler_proxy`, `channel_estimate_correlation` are implemented.
+- Label objective: BER + 1e-4 * (normalised complexity proxy + training-overhead SE loss); deterministic ties -> lowest id.
+- Split: independent seeds => disjoint channel realisations (hash-checked); tuning on validation only; test evaluated once.
+- Not implemented: Doppler-induced ICI, interference, 16-QAM in the experiment grid, LMMSE with scenario-adapted covariance.
